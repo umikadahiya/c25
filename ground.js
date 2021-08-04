@@ -1,30 +1,35 @@
-class Ground
+class ground
 {
-	constructor(x,y,w,h)
+	constructor(x,y)
 	{
 		var options={
-			isStatic:true			
+			isStatic:true,
+			restitution:0.3,
+			friction:0.5,
+			density:1.2
+
+			
 			}
-		this.x=x;
-		this.y=y;
-		this.w=w
-		this.h=h
-		this.body=Bodies.rectangle(x, y, w, h , options);
- 		World.add(world, this.body);
+		
+        this.ground=Bodies.rectangle(x, y,1200,20, options)
+        
+        World.add(world, this.ground);
 
 	}
 	display()
 	{
 			
-			var groundPos=this.body.position;		
+				
 
-			push()
-			translate(groundPos.x, groundPos.y);
+			
+			push();
 			rectMode(CENTER)
-			strokeWeight(4);
-			fill(128,128,128)
-			rect(0,0,this.w, this.h);
-			pop()
+		
+			fill(200,0,255)
+           
+            
+            rect(this.ground.position.x,this.ground.position.y,1200,20)
+		    
 			
 	}
 
